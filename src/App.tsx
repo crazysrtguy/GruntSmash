@@ -139,7 +139,7 @@ const pointsToAdd = 4.20.toFixed(2);
               <Hamster size={24} className="text-[#d4d4d4]" />
             </div>
             <div>
-              <p className="text-sm">Earn CannaVerse Tokens</p>
+              <p className="text-sm">Become Legendary and Earn Rewards</p>
             </div>
           </div>
           <div className="flex items-center justify-between space-x-4 mt-1">
