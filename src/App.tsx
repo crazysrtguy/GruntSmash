@@ -139,7 +139,7 @@ const App: React.FC = () => {
               <Hamster size={24} className="text-[#d4d4d4]" />
             </div>
             <div>
-              <p className="text-sm">Grunt says "Help Me Touch MOON"</p>
+              <p className="text-sm">Every Click earns CannaVerse Tokens"</p>
             </div>
           </div>
           <div className="flex items-center justify-between space-x-4 mt-1">
@@ -160,7 +160,7 @@ const App: React.FC = () => {
               <img src={binanceLogo} alt="Exchange" className="w-12 h-8" />
               <div className="h-[32px] w-[2px] bg-[#43433b] mx-2"></div>
               <div className="flex-1 text-center">
-                <p className="text-xs text-[#85827d] font-small">Shit Dumped on Grunt</p>
+                <p className="text-xs text-[#85827d] font-small">Buds Chopped and Cured</p>
                 <div className="flex items-center justify-center space-x-1">
                   <img src={dollarCoin} alt="Dollar Coin" className="w-[18px] h-[18px]" />
                   <p className="text-sm">{formatProfitPerHour(profitPerHour)}</p>
@@ -179,19 +179,19 @@ const App: React.FC = () => {
               <div className="bg-[#272a2f] rounded-lg px-4 py-2 w-full relative">
                 <div className="dot"></div>
                 <img src={dailyReward} alt="Daily Reward" className="mx-auto w-12 h-12" />
-                <p className="text-[10px] text-center text-white mt-1">Daily TOP</p>
+                <p className="text-[10px] text-center text-white mt-1">Extra Chop</p>
                 <p className="text-[10px] font-medium text-center text-gray-400 mt-2">{dailyRewardTimeLeft}</p>
               </div>
               <div className="bg-[#272a2f] rounded-lg px-4 py-2 w-full relative">
                 <div className="dot"></div>
                 <img src={dailyCipher} alt="Daily Cipher" className="mx-auto w-12 h-12" />
-                <p className="text-[10px] text-center text-white mt-1">Harder Harder</p>
+                <p className="text-[10px] text-center text-white mt-1">Smoke</p>
                 <p className="text-[10px] font-medium text-center text-gray-400 mt-2">{dailyCipherTimeLeft}</p>
               </div>
               <div className="bg-[#272a2f] rounded-lg px-4 py-2 w-full relative">
                 <div className="dot"></div>
                 <img src={dailyCombo} alt="Daily Combo" className="mx-auto w-12 h-12" />
-                <p className="text-[10px] text-center text-white mt-1">And, even HARDER</p>
+                <p className="text-[10px] text-center text-white mt-1">Dab</p>
                 <p className="text-[10px] font-medium text-center text-gray-400 mt-2">{dailyComboTimeLeft}</p>
               </div>
             </div>
@@ -232,7 +232,7 @@ const App: React.FC = () => {
           <Friends className="w-8 h-8 mx-auto" />
           <p className="mt-1">Telegram</p>
         </a>
-        <a href="https://dexscreener.com/solana/9hwqf6x7wja2unv9amxfxri19k9zfgwgez2ryj64qn95" target="_blank" rel="noopener noreferrer" className="text-center text-[#85827d] w-1/5">
+        <a href="https://dexscreener.com/solana/" target="_blank" rel="noopener noreferrer" className="text-center text-[#85827d] w-1/5">
           <Coins className="w-8 h-8 mx-auto" />
           <p className="mt-1">DexScreener</p>
         </a>
