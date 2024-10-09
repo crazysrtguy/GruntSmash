@@ -7,7 +7,6 @@ import Settings from './icons/Settings';
 import Mine from './icons/Mine';
 import Friends from './icons/Friends';
 import Coins from './icons/Coins';
-import { PublicKey } from '@solana/web3.js';
 
 const App: React.FC = () => {
   const levelNames = [
