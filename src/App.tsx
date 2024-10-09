@@ -159,7 +159,6 @@ const App: React.FC = () => {
               <Hamster size={24} className="text-[#d4d4d4]" />
             </div>
             <div>
-              <p className="text-sm">Top 10 Smokers Win CannaVerse Tokens</p>
               <p className="text-sm">Every Bong Rip Earns Points</p>
 
               </div>
