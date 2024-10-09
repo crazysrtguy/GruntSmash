@@ -7,6 +7,7 @@ import Settings from './icons/Settings';
 import Mine from './icons/Mine';
 import Friends from './icons/Friends';
 import Coins from './icons/Coins';
+import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js'; // Import Solana libraries
 
 const App: React.FC = () => {
   const levelNames = [
@@ -38,12 +39,13 @@ const App: React.FC = () => {
   const [levelIndex, setLevelIndex] = useState(6);
   const [points, setPoints] = useState(420);
   const [floatingCoins, setFloatingCoins] = useState<{ id: number, x: number, y: number }[]>([]);
-  const pointsToAdd = 4.20;
-  const profitPerHour = 126420;
+  const pointsToAdd = 420;
+  const profitPerHour = 42069;
 
   const [dailyRewardTimeLeft, setDailyRewardTimeLeft] = useState("");
   const [dailyCipherTimeLeft, setDailyCipherTimeLeft] = useState("");
   const [dailyComboTimeLeft, setDailyComboTimeLeft] = useState("");
+  const [walletAddress, setWalletAddress] = useState<PublicKey | null>(null);
 
   const calculateTimeLeft = (targetHour: number) => {
     const now = new Date();
@@ -130,6 +132,25 @@ const App: React.FC = () => {
     return () => clearInterval(interval);
   }, [profitPerHour]);
 
+  const connectWallet = async () => {
+    if ('solana' in window) {
+      const { solana } = window as any;
+      if (solana.isPhantom) {
+        try {
+          const response = await solana.connect();
+          setWalletAddress(response.publicKey);
+          console.log('Connected to wallet:', response.publicKey.toString());
+        } catch (err) {
+          console.error('Connection failed:', err);
+        }
+      } else {
+        alert('Please install Phantom wallet.');
+      }
+    } else {
+      alert('Solana object not found! Please install Phantom wallet.');
+    }
+  };
+
   return (
     <div className="bg-black flex justify-center">
       <div className="w-full bg-black text-white h-screen font-bold flex flex-col max-w-xl">
@@ -139,9 +160,17 @@ const App: React.FC = () => {
               <Hamster size={24} className="text-[#d4d4d4]" />
             </div>
             <div>
-              <p className="text-sm">Every Click earns CannaVerse Tokens"</p>
-            </div>
-          </div>
+              <p className="text-sm">Top 10 Smokers Win CannaVerse Tokens</p>
+              <p className="text-sm">Every Bong Rip Earns Points</p>
+
+              </div>
+          <button
+            onClick={connectWallet}
+            className="bg-[#f3ba2f] rounded-lg px-3 py-1 text-black"
+          >
+            {walletAddress ? `Connected: ${walletAddress.toString().slice(0, 5)}...` : 'Connect Wallet'}
+          </button>
+        </div>
           <div className="flex items-center justify-between space-x-4 mt-1">
             <div className="flex items-center w-1/3">
               <div className="w-full">
@@ -198,7 +227,7 @@ const App: React.FC = () => {
 
             <div className="px-4 mt-4 flex justify-center">
               <div className="px-4 py-2 flex items-center space-x-2">
-                <img src={dollarCoin} alt="Dollar Coin" className="w-10 h-10" />
+                <img src={dollarCoin} alt="Dollar Coin" className="w-20 h-20" />
                 <p className="text-4xl text-white">{points.toLocaleString()}</p>
               </div>
             </div>
@@ -224,7 +253,7 @@ const App: React.FC = () => {
           <img src={binanceLogo} alt="Exchange" className="w-12 h-8 mx-auto" />
           <p className="mt-1">DexTools</p>
         </a>
-        <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="text-center text-[#85827d] w-1/5">
+        <a href="https://x.com/CannaVerse_META" target="_blank" rel="noopener noreferrer" className="text-center text-[#85827d] w-1/5">
           <Mine className="w-8 h-8 mx-auto" />
           <p className="mt-1">X.com</p>
         </a>
@@ -236,7 +265,7 @@ const App: React.FC = () => {
           <Coins className="w-8 h-8 mx-auto" />
           <p className="mt-1">DexScreener</p>
         </a>
-        <a href="https://meme-generator-git-main-crazysrtguys-projects.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-center text-[#85827d] w-1/5">
+        <a href="https://meme-generator-bice-eta.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-center text-[#85827d] w-1/5">
           <img src={hamsterCoin} alt="Airdrop" className="w-8 h-8 mx-auto" />
           <p className="mt-1">Meme Generator</p>
         </a>
