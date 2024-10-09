@@ -7,7 +7,7 @@ import Settings from './icons/Settings';
 import Mine from './icons/Mine';
 import Friends from './icons/Friends';
 import Coins from './icons/Coins';
-import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js'; // Import Solana libraries
+import PublicKey from '@solana/web3.js'; // Import Solana libraries
 
 const App: React.FC = () => {
   const levelNames = [
