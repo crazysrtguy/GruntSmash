@@ -159,16 +159,12 @@ const App: React.FC = () => {
               <Hamster size={24} className="text-[#d4d4d4]" />
             </div>
             <div>
+          
               <p className="text-sm">Every Bong Rip Earns Points</p>
 
               </div>
           
-           <button
-      onClick={connectWallet}
-      className="bg-[#f3ba2f] rounded-lg px-3 py-1 text-black"
-    >
-      {walletAddress ? `Connected: ${walletAddress.slice(0, 5)}...` : 'Connect Wallet'}
-    </button>
+        
         </div>
           <div className="flex items-center justify-between space-x-4 mt-1">
             <div className="flex items-center w-1/3">
@@ -188,7 +184,7 @@ const App: React.FC = () => {
               <img src={binanceLogo} alt="Exchange" className="w-12 h-8" />
               <div className="h-[32px] w-[2px] bg-[#43433b] mx-2"></div>
               <div className="flex-1 text-center">
-                <p className="text-xs text-[#85827d] font-small">Buds Chopped and Cured</p>
+                <p className="text-xs text-[#85827d] font-small">Buds Cured</p>
                 <div className="flex items-center justify-center space-x-1">
                   <img src={dollarCoin} alt="Dollar Coin" className="w-[18px] h-[18px]" />
                   <p className="text-sm">{formatProfitPerHour(profitPerHour)}</p>
@@ -248,10 +244,10 @@ const App: React.FC = () => {
       {/* Bottom fixed div */}
       {/* Bottom fixed div with updated links */}
       <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-[calc(100%-2rem)] max-w-xl bg-[#272a2f] flex justify-around items-center z-50 rounded-3xl text-xs">
-        <a href="https://www.dextools.io/app/en/solana/pair-explorer" target="_blank" rel="noopener noreferrer" className="text-center text-[#85827d] w-1/5 bg-[#1c1f24] m-1 p-2 rounded-2xl">
-          <img src={binanceLogo} alt="Exchange" className="w-12 h-8 mx-auto" />
-          <p className="mt-1">DexTools</p>
-        </a>
+        <div onClick={connectWallet} className="text-center text-[#85827d] w-1/5 bg-[#1c1f24] m-1 p-2 rounded-2xl cursor-pointer">
+          <img src={binanceLogo} alt="Connect Wallet" className="w-12 h-8 mx-auto" />
+          <p className="mt-1">{walletAddress ? 'Connected' : 'Connect Wallet'}</p>
+        </div>
         <a href="https://x.com/CannaVerse_META" target="_blank" rel="noopener noreferrer" className="text-center text-[#85827d] w-1/5">
           <Mine className="w-8 h-8 mx-auto" />
           <p className="mt-1">X.com</p>
