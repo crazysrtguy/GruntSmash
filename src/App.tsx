@@ -7,7 +7,7 @@ import Settings from './icons/Settings';
 import Mine from './icons/Mine';
 import Friends from './icons/Friends';
 import Coins from './icons/Coins';
-import PublicKey from '@solana/web3.js'; // Import Solana libraries
+import { PublicKey } from '@solana/web3.js';
 
 const App: React.FC = () => {
   const levelNames = [
@@ -45,7 +45,7 @@ const App: React.FC = () => {
   const [dailyRewardTimeLeft, setDailyRewardTimeLeft] = useState("");
   const [dailyCipherTimeLeft, setDailyCipherTimeLeft] = useState("");
   const [dailyComboTimeLeft, setDailyComboTimeLeft] = useState("");
-  const [walletAddress, setWalletAddress] = useState<PublicKey | null>(null);
+  const [walletAddress, setWalletAddress] = useState<string | null>(null);
 
   const calculateTimeLeft = (targetHour: number) => {
     const now = new Date();
@@ -134,11 +134,11 @@ const App: React.FC = () => {
 
   const connectWallet = async () => {
     if ('solana' in window) {
-      const { solana } = window as any;
+      const solana = (window as any).solana;
       if (solana.isPhantom) {
         try {
           const response = await solana.connect();
-          setWalletAddress(response.publicKey);
+          setWalletAddress(response.publicKey.toString());
           console.log('Connected to wallet:', response.publicKey.toString());
         } catch (err) {
           console.error('Connection failed:', err);
@@ -164,12 +164,13 @@ const App: React.FC = () => {
               <p className="text-sm">Every Bong Rip Earns Points</p>
 
               </div>
-          <button
-            onClick={connectWallet}
-            className="bg-[#f3ba2f] rounded-lg px-3 py-1 text-black"
-          >
-            {walletAddress ? `Connected: ${walletAddress.toString().slice(0, 5)}...` : 'Connect Wallet'}
-          </button>
+          
+           <button
+      onClick={connectWallet}
+      className="bg-[#f3ba2f] rounded-lg px-3 py-1 text-black"
+    >
+      {walletAddress ? `Connected: ${walletAddress.slice(0, 5)}...` : 'Connect Wallet'}
+    </button>
         </div>
           <div className="flex items-center justify-between space-x-4 mt-1">
             <div className="flex items-center w-1/3">
